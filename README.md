@@ -15,4 +15,6 @@ SimpleNMEASimulator.Console.exe -lat 64.761374 -lon 20.967495 -port COM1
 
 Usage
 =====
-After the application has started. You can change direction and speed using the arrow keys. To terminate the application press Escape
+After the application has started. You can change direction and speed using the arrow keys. 
+
+To terminate the application press Escape
