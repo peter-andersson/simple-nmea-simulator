@@ -5,13 +5,13 @@ Configuration
 =============
 Must supply the following parameters to the application
 
--lat <latitude>
--lon <longitude>
--port <SerialPort name>
+* -lat <latitude>
+* -lon <longitude>
+* -port <SerialPort name>
 
 ```
 SimpleNMEASimulator.Console.exe -lat 64.761374 -lon 20.967495 -port COM1
-´´´
+```
 
 Usage
 =====
