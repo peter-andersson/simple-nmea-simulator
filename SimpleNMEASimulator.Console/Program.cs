@@ -122,7 +122,7 @@
 
             while (true)
             {
-                double knots = speed * 1.852;
+                double knots = speed * 0.5399568f;
                            
                 // Distance in kilometer
                 double kmDistance = speed * (1 / 3600f);
@@ -217,11 +217,11 @@
                                            1 = GPS fix (SPS)
                                            2 = DGPS fix
                                            3 = PPS fix
-			                   4 = Real Time Kinematic
-			                   5 = Float RTK
+                               4 = Real Time Kinematic
+                               5 = Float RTK
                                            6 = estimated (dead reckoning) (2.3 feature)
-			                   7 = Manual input mode
-			                   8 = Simulation mode
+                               7 = Manual input mode
+                               8 = Simulation mode
                  08           Number of satellites being tracked
                  0.9          Horizontal dilution of position
                  545.4,M      Altitude, Meters, above mean sea level
