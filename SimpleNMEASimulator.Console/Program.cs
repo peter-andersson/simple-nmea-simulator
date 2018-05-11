@@ -14,6 +14,9 @@
         static int direction;
         static string portName;
 
+        const int BigSpeedStep = 20;
+        const int BigAngleStep = 45;
+
         static void Main(string[] args)
         {
             speed = 0;
@@ -36,11 +39,33 @@
                 }
                 else if (key.Key == ConsoleKey.UpArrow)
                 {
-                    speed++;
+                    if (key.Modifiers == ConsoleModifiers.Shift)
+                    {
+                        speed = (speed / BigSpeedStep) * BigSpeedStep;
+                        speed += BigSpeedStep;
+                    }
+                    else
+                    {
+                        speed++;
+                    }
                 }
                 else if (key.Key == ConsoleKey.DownArrow)
                 {
-                    speed--;
+                    if (key.Modifiers == ConsoleModifiers.Shift)
+                    {
+                        if (speed % BigSpeedStep != 0)
+                        {
+                            speed = (speed / BigSpeedStep) * BigSpeedStep;
+                        }
+                        else
+                        {
+                            speed -= BigSpeedStep;
+                        }
+                    }
+                    else
+                    {
+                        speed--;
+                    }
                     if (speed < 0)
                     {
                         speed = 0;
@@ -48,23 +73,50 @@
                 }
                 else if (key.Key == ConsoleKey.LeftArrow)
                 {
-                    direction--;
+                    if (key.Modifiers == ConsoleModifiers.Shift)
+                    {
+                        // Byt riktning i intervall om 45°
+                        if (direction % BigAngleStep != 0)
+                        {
+                            direction = (direction / BigAngleStep) * BigAngleStep;
+                        }
+                        else
+                        {
+                            direction -= BigAngleStep;
+                        }
+                    }
+                    else
+                    {
+                        direction--;
+                    }
                     if (direction < 0)
                     {
-                        direction = 359;
+                        direction = direction + 360;
                     }
                 }
                 else if (key.Key == ConsoleKey.RightArrow)
                 {
-                    direction++;
+                    if (key.Modifiers == ConsoleModifiers.Shift)
+                    {
+                        // Byt riktning i intervall om 45°
+                        if (direction % BigAngleStep != 0)
+                        {
+                            direction = direction / BigAngleStep;
+                        }
+                        direction += BigAngleStep;
+                    }
+                    else
+                    {
+                        direction++;
+                    }
                     if (direction > 359)
                     {
-                        direction = 0;
+                        direction -= 360;
                     }
                 }
                 else if (key.Key == ConsoleKey.Spacebar)
                 {
-                    speed = 0;                    
+                    speed = 0;
                 }
 
                 Console.WriteLine("Speed: {0} Direction: {1}", speed, direction);
